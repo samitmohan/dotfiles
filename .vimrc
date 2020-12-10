@@ -40,6 +40,7 @@ let mapleader=","
 set tabstop=4
 set expandtab
 set shiftwidth=4
+map <C-a> <esc>ggVG<CR>
 autocmd filetype cpp nnoremap <F5> :w <bar> !g++  -Wall -Wno-unused-result -std=c++11   -O2   % -o %:r && ./%:r <CR>
 autocmd filetype c nnoremap <F5> :w <bar> :!gcc % && ./a.out <CR>
 autocmd filetype python nnoremap <F5> :w <bar> !python % <CR>
