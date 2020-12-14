@@ -1,2 +1,2 @@
 # TerminalStuff
-vim/bash files
+vim/bash/tmux files
