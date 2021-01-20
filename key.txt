@@ -1,4 +1,5 @@
 #KEYBINDS (VIM + TMUX + CP + VSCODE)
+:sp "name" to split window in vim 
 control tilda ~ - open terminal
 subl to open a file
 0w to go to beginning or just b 
