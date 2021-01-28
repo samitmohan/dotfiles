@@ -1,50 +1,30 @@
-#KEYBINDS (VIM + TMUX + CP + VSCODE)
-:sp "name" to split window in vim 
-control tilda ~ - open terminal
-subl to open a file
-0w to go to beginning or just b 
-space t -> open vertical split ++ ctrl w w to navigate (Control D to exit)
-code <file name> to open file in vscode
-A to goto end of line in insert mode
-:te to open terminal in nvimm
-F5 to run (c/c++/python)
-ctrl c to exit insert mode
-ctrl p for fizzy search (also cmd P works as well (like in VSCODE))
-ctrl j ctrl k for navigating in fizzy search
-ctrl ww to switch from nerd tree to editor
-ctrl n  for nerd tree(normal mode)
-ctrl n in insert mode -> autocomplete text (not code)
+#Vim
+space r to run (vim)
+:sp "name" to split window
+subl/code to open a file
+space t + ctrl ww to split and navigate
+A (end of file)
+ctrl P - fizzy search (ctrl j/k for navigating)
+ctrl n - Nerd Tree
 shift ++ to comment
-i to enter insert mode
-yw to copy word
+yw/dw to copy/delete word
 shift E to go to end ; shift B to go to beginning 
-/searchtext and enter and you can go to the next by “n” and shift n goes up
-shift v  visual line mode | v - start highlgting line 
-dw  delete word (dwi) delete inner word
-o  goes into insert mode but also creates a new line below (O for upwards)
+/searchtext and next by “n” and shift n goes up
+o New line and O - New line but upwards
 f  forward (f” jumps to the first “) 
-ciw  change inner (use w, p, “,whatever)
+ciw  change inner
 shift >  Indent
 } jump a paragraph
 .  repeat last command
-:w "file name" to save
-gA to copy all or ctrl A + y
 "For python, subl cpbooster -> Preff lang (py), for c++ (cpp)"
 cpbooster serve -> code companion -> :ls -> :Test
 can also use cpb (short for cpbooster)
-cmd w ; close file
-F2 - Replace name
-command K + C ;; comment everything
-ctrl alt b - testcase run
-ctrl j to hide terminal 
-ctrl 1/2/3 to switch pane
-cmdD to change words 
-shift arrow keys to select code 
-shift alt down/up to copy the same line
-cmd p to search
-ctrl c to switch between terminals
-ctrl b run
 
+#VSCode
+ctrl alt b - testcase run (VSCODE)
+shift alt down/up to copy the same line
+
+#Tmux
 set-option -g prefix C-b
 bind-key n last-window
 bind-key m send-prefix
@@ -56,5 +36,4 @@ tmux ls for sessions
 prefix "          split vertically (top/bottom)
 prefix %          split horizontally (left/right)"
 prefix left/right/up/down - To navigate
-#more tmux (ctrl h to switch from vim to tmux pane (left) and ctrl l (right))
 

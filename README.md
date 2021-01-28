@@ -1,4 +1,5 @@
-# TerminalStuff
-I dont use bash anymore, I use fish and omf (its much better than bash)
+#dotfiles
 
-I use older version of vim + tmux 
+for terminal; i use fish (omf) and vim8 + tmux
+have included keybinds that i use for vscode/vim/tmux
+
