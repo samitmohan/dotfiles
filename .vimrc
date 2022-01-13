@@ -2,9 +2,11 @@
 
 syntax on
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set expandtab
 set ai
+set noswapfile
 set si
 set number
 set hlsearch
