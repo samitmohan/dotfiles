@@ -1,4 +1,4 @@
 #dotfiles
 
-For terminal -> I use fish with omf and iTerm2 and sometimes MacVim
-
+default terminal to write code, vscode to read / revise 
+geoge hotz ftw
