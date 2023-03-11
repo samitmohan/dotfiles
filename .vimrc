@@ -28,7 +28,6 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 set foldmethod=indent
 set foldlevel=99
-
 let g:SimpylFold_docstring_preview=1
 au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2
