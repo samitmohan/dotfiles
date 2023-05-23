@@ -1,42 +1,41 @@
-imap jk <ESC>
-highlight Comment ctermfg=green
-let mapleader = " "
 syntax on
-set encoding=utf-8
+imap jk <ESC>
+let mapleader = ","
+set rnu
 filetype indent on
 set shiftwidth=4
+nnoremap <F1> :set invpaste paste?<CR>
+autocmd BufWritePre * :%s/\s\+$//e
+set pastetoggle=<F1>
 set softtabstop=4
 set smartindent
+vnoremap <leader>p "_dP"
+nnoremap <Leader>y "+y"
 set expandtab
 set ai
-set si
-set number
-set hlsearch
+set incsearch
 set ruler
 set backspace=indent,eol,start
 call plug#begin()
-Plug 'tpope/vim-commentary'
-" Plug 'doums/darcula'
-Plug 'vim-autoformat/vim-autoformat'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'dracula/vim', { 'name': 'dracula'  }
+Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+colorscheme torte
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+set bg=dark
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
-noremap <F3> :Autoformat<CR>
-let g:SimpylFold_docstring_preview=1
-au BufNewFile,BufRead *.js, *.html, *.css
-\ set tabstop=2
-\ set softtabstop=2
-\ set shiftwidth=2
 set clipboard=unnamed
 set nobackup
-set nowritebackup
-inoremap <silent><expr> <TAB>
-\ coc#pum#visible() ? coc#pum#next(1) :
-\ CheckBackspace() ? "\<Tab>" :
-\ coc#refresh()
+"\ coc#pum#visible() ? coc#pum#next(1) :
+"\ CheckBackspace() ? "\<Tab>" :
+"\ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
 \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -177,3 +176,17 @@ hi! link CocErrorHighlight CodeError
 hi! link CocWarningHighlight CodeWarning
 hi! link CocInfoHighlight CodeInfo
 hi! link CocHintHighlight CodeHint
+
+autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
+autocmd filetype cpp nnoremap <F9> :w <bar> !g++ -std=c++11 % -o %:r <CR>
+autocmd filetype cpp nnoremap <C-C> :s/^\(\s*\)/\1\/\/<CR> :s/^\(\s*\)\/\/\/\//\1<CR> $
+map <F6> :!g++ -std=c++11 % -o %:r && ./%:r <CR>
+nmap <F2> <Plug>(coc-rename)
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
