@@ -1,8 +1,9 @@
 syntax on
 imap jk <ESC>
 let mapleader = ","
-set rnu
 filetype indent on
+filetype on
+set lazyredraw
 set shiftwidth=4
 nnoremap <F1> :set invpaste paste?<CR>
 autocmd BufWritePre * :%s/\s\+$//e
@@ -11,23 +12,34 @@ set softtabstop=4
 set smartindent
 vnoremap <leader>p "_dP"
 nnoremap <Leader>y "+y"
-set expandtab
 set ai
+set nu
+set relativenumber
+set termguicolors
+set noswapfile
+set textwidth=80
+set nobackup
+"hi Normal guibg=NONE ctermbg=NONE
+set hlsearch
 set incsearch
 set ruler
+set updatetime=50
 set backspace=indent,eol,start
 call plug#begin()
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'jiangmiao/auto-pairs'
-Plug 'dracula/vim', { 'name': 'dracula'  }
+Plug 'junegunn/goyo.vim'
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
-colorscheme torte
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
-set bg=dark
+set background=dark
+let g:disable_bg = 1
+colorscheme rosepine
+map <leader>z :Goyo<cr>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
@@ -85,7 +97,7 @@ autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying code actions to the selected code block
-" Example: `<leader>aap` for current paragraph
+" Example: `<leader>aapfor current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
@@ -180,9 +192,6 @@ hi! link CocHintHighlight CodeHint
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
-autocmd filetype cpp nnoremap <F9> :w <bar> !g++ -std=c++11 % -o %:r <CR>
-autocmd filetype cpp nnoremap <C-C> :s/^\(\s*\)/\1\/\/<CR> :s/^\(\s*\)\/\/\/\//\1<CR> $
-map <F6> :!g++ -std=c++11 % -o %:r && ./%:r <CR>
 nmap <F2> <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
